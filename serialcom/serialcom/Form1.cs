@@ -16,13 +16,13 @@ namespace serialcom
     public partial class Form1 : Form
     {
 
-        private SerialPort serialPort1 =null;
+        private SerialPort serialPort1;
         Communication com;
         ControleRobot controle;
         public Form1()
         {
             InitializeComponent();
-          
+            serialPort1 = new SerialPort();
 
             this.KeyPreview = true;
             controle = new ControleRobot(this);
@@ -32,7 +32,7 @@ namespace serialcom
 
         private void CONNECT_Click(object sender, EventArgs e)
         {
-            serialPort1 = new SerialPort();
+
             if (com.getconfirm())
             {
                 serialPort1.PortName = com.getPortName();
@@ -74,7 +74,7 @@ namespace serialcom
         {
             if (e.Control && e.KeyCode == Keys.N)
             {
-               if(serialPort1 != null)
+              //  if(com.getconfirm())
                     controle.ShowDialog();
             }
         }

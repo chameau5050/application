@@ -162,6 +162,38 @@ namespace serialcom
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+
+
+        }
+
+        private void TXWINDOW_TextChanged(object sender, EventArgs e) //_TextChanged est un event
+        {
+            DataTable clone = table.Clone();
+            clone.Rows.Clear();
+            for (int count=0;count<table.Rows.Count;count++)
+            {
+                if (table.Rows[count][0].ToString().Contains(TXWINDOW.Text)) //.Text est le texte
+                {
+                    DataRow row = clone.NewRow();
+                        for (int x=0; x<table.Columns.Count;x++)
+                    { row[x] = table.Rows[count][x];
+                    }
+                    clone.Rows.Add(row);
+                }
+            }
+            data.DataSource = clone;
+
+
+        }
+
         //  private void send_Click(object sender, EventArgs e)
         //{
 

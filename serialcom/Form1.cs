@@ -76,7 +76,7 @@ namespace serialcom
                 }
             }
             data.DataSource = table;
-            
+            Connect();
         }
 
 
@@ -95,21 +95,38 @@ namespace serialcom
             return isNum;
         }
 
+        private void Connect() {
+            try
+            {
+                serialPort1 = new SerialPort();
+                if (com.getconfirm())
+                {
+                    serialPort1.PortName = com.getPortName();
+                    serialPort1.BaudRate = com.getBaudRate();
+                    serialPort1.Open();
+
+                    if (!serialPort1.IsOpen) return;
+                    CONNECT.Enabled = false;
+
+                    MessageBox.Show("Connected", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CONNECT.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Connection seting not confirmed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CONNECT.Visible = true;
+                }
+            }
+            catch (Exception exept)
+            {
+                MessageBox.Show("une erreur est survenue lors de la connexion", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CONNECT.Visible = true;
+            }
+        }
+
         private void CONNECT_Click(object sender, EventArgs e)
         {
-            serialPort1 = new SerialPort();
-            if (com.getconfirm())
-            {
-                serialPort1.PortName = com.getPortName();
-                serialPort1.BaudRate = com.getBaudRate();
-                serialPort1.Open();
-
-                if (!serialPort1.IsOpen) return;
-                CONNECT.Enabled = false;
-
-                MessageBox.Show("Connected", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }else
-                MessageBox.Show("Connection seting not confirmed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Connect();
         }
 
 
@@ -170,13 +187,6 @@ namespace serialcom
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
-
-
-        }
-
-        private void TXWINDOW_TextChanged(object sender, EventArgs e) //_TextChanged est un event
-        {
-           
 
 
         }

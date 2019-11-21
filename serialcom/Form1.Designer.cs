@@ -36,22 +36,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.vide = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.panier = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panier)).BeginInit();
             this.SuspendLayout();
             // 
             // CONNECT
@@ -66,9 +67,9 @@
             // 
             // TXWINDOW
             // 
-            this.TXWINDOW.Location = new System.Drawing.Point(822, 54);
+            this.TXWINDOW.Location = new System.Drawing.Point(833, 51);
             this.TXWINDOW.Name = "TXWINDOW";
-            this.TXWINDOW.Size = new System.Drawing.Size(150, 20);
+            this.TXWINDOW.Size = new System.Drawing.Size(257, 20);
             this.TXWINDOW.TabIndex = 2;
             this.TXWINDOW.TextChanged += new System.EventHandler(this.TXWINDOW_TextChanged_1);
             // 
@@ -80,6 +81,8 @@
             this.data.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.data.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.data.ColumnHeadersHeight = 29;
+            this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6});
             this.data.Location = new System.Drawing.Point(405, 77);
             this.data.Name = "data";
             this.data.RowHeadersWidth = 51;
@@ -143,18 +146,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Commander avec BiblioRobot \r\nc\'est facile, rapide et efficace.";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(405, 275);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(684, 120);
-            this.dataGridView1.TabIndex = 8;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -181,29 +172,40 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.vide);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.TXWINDOW);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.data);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panier);
             this.panel3.Location = new System.Drawing.Point(41, 140);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1118, 505);
             this.panel3.TabIndex = 12;
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(411, 289);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 18);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Votre panier est vide";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(736, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 18);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Recherche :";
+            // 
+            // vide
+            // 
+            this.vide.AutoSize = true;
+            this.vide.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vide.Location = new System.Drawing.Point(411, 289);
+            this.vide.Name = "vide";
+            this.vide.Size = new System.Drawing.Size(151, 18);
+            this.vide.TabIndex = 14;
+            this.vide.Text = "Votre panier est vide";
+           
             // 
             // panel6
             // 
@@ -243,14 +245,26 @@
             this.panel2.Size = new System.Drawing.Size(216, 227);
             this.panel2.TabIndex = 14;
             // 
-            // label8
+            // panier
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(733, 61);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "recherche :";
+            this.panier.AllowUserToAddRows = false;
+            this.panier.AllowUserToDeleteRows = false;
+            this.panier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.panier.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.panier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panier.ColumnHeadersHeight = 29;
+            this.panier.Location = new System.Drawing.Point(414, 277);
+            this.panier.Name = "panier";
+            this.panier.RowHeadersWidth = 51;
+            this.panier.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.panier.Size = new System.Drawing.Size(675, 116);
+            this.panier.TabIndex = 16;
+            this.panier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ajouter au panier";
+            this.Column6.Name = "Column6";
             // 
             // Form1
             // 
@@ -268,13 +282,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panier)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,7 +303,6 @@
         public System.Windows.Forms.DataGridView data;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
@@ -297,8 +310,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label vide;
         private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.DataGridView panier;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column6;
     }
 }
 

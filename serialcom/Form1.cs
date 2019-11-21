@@ -26,6 +26,9 @@ namespace serialcom
         private SerialPort serialPort1 =null;
         Communication com; //window for first connexion, ask the user
         ControleRobot controle; //window blank for connexion shortcut
+        DataTable achat;
+        DataTable recherche;
+
         public Form1()
         {
             InitializeComponent();
@@ -77,6 +80,12 @@ namespace serialcom
             }
             data.DataSource = table;
             Connect();
+
+            achat = table.Clone();
+            achat.Rows.Clear();
+            recherche = table.Clone();
+            recherche.Rows.Clear();
+            
         }
 
 
@@ -174,42 +183,60 @@ namespace serialcom
 
         }
 
+ 
+ 
+
+
         private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int b = data.CurrentCell.ColumnIndex;
+            int a = data.CurrentCell.RowIndex;
+            if (b == 0)
+            {
+                //String b = data.Rows[a].Cells[0].Value.ToString();
 
-        }
+                DataRow row = achat.NewRow();
+                for (int x = 0; x < table.Columns.Count; x++)
+                {
+                    row[x] = table.Rows[a][x];
+                }
+                achat.Rows.Add(row);
+                panier.DataSource = achat; //on a associé le datagridview du panier à la base de donnée de l'achat
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+                vide.Visible = false; //rend le texte invisible de : votre panier est vide
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
-
-
         }
 
-        private void TXWINDOW_TextChanged_1(object sender, EventArgs e)
+        private void TXWINDOW_TextChanged_1(object sender, EventArgs e) //Barre de recherche
         {
-            DataTable clone = table.Clone();
-            clone.Rows.Clear();
+            recherche = table.Clone();
+            recherche.Rows.Clear();
             for (int count = 0; count < table.Rows.Count; count++)
             {
                 if (table.Rows[count][0].ToString().Contains(TXWINDOW.Text)) //.Text est le texte
                 {
-                    DataRow row = clone.NewRow();
+                    DataRow row = recherche.NewRow();
                     for (int x = 0; x < table.Columns.Count; x++)
                     {
                         row[x] = table.Rows[count][x];
                     }
-                    clone.Rows.Add(row);
+                    recherche.Rows.Add(row);
                 }
             }
-            data.DataSource = clone;
+            data.DataSource = recherche;
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+      
         //  private void send_Click(object sender, EventArgs e)
         //{
 

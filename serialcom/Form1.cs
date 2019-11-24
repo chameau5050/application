@@ -29,6 +29,8 @@ namespace serialcom
         DataTable achat;
         DataTable recherche;
 
+        List<String> file = new List<string>();
+
         public Form1()
         {
             InitializeComponent();
@@ -149,6 +151,12 @@ namespace serialcom
         {
 
             string message = serialPort1.ReadExisting();
+
+            if (message == "newTask" && file.Count !=0) {
+                send(file[0]);
+                file.RemoveAt(0);
+            }
+
          // a ajouter si un bi-latéral nessésaire
          //   this.Invoke(new EventHandler(DisplayText));
 
@@ -171,21 +179,6 @@ namespace serialcom
         } 
 
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-         //   MessageBox.Show("meau", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-
-        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
-        }
-
- 
- 
-
 
         private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -203,15 +196,13 @@ namespace serialcom
                 achat.Rows.Add(row);
                 panier.DataSource = achat; //on a associé le datagridview du panier à la base de donnée de l'achat
 
+                panier.Visible = true;
                 vide.Visible = false; //rend le texte invisible de : votre panier est vide
+                commander.Enabled = true;
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+    
         private void TXWINDOW_TextChanged_1(object sender, EventArgs e) //Barre de recherche
         {
             recherche = table.Clone();
@@ -231,16 +222,20 @@ namespace serialcom
             data.DataSource = recherche;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void commander_Click(object sender, EventArgs e)
         {
+            for (int x = 0; x < achat.Rows.Count; x++) {
+                file.Add(achat.Rows[x]["tablette"].ToString());
+            }
+            MessageBox.Show("votre commande à bien été envoyer\nMerci d'avoir fait affaire avec BiblioRobot", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            commander.Enabled = false;
+            vide.Visible = true;
+            achat.Clear();
 
+            panier.Visible = false;
+            data.DataSource = table;
+            TXWINDOW.Clear();
         }
-
-      
-        //  private void send_Click(object sender, EventArgs e)
-        //{
-
-        //}
     }
 
 

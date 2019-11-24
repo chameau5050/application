@@ -31,6 +31,7 @@
             this.CONNECT = new System.Windows.Forms.Button();
             this.TXWINDOW = new System.Windows.Forms.TextBox();
             this.data = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,11 +43,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.vide = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.commander = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panier = new System.Windows.Forms.DataGridView();
-            this.Column6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +90,11 @@
             this.data.Size = new System.Drawing.Size(684, 141);
             this.data.TabIndex = 4;
             this.data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ajouter au panier";
+            this.Column6.Name = "Column6";
             // 
             // panel1
             // 
@@ -175,7 +180,7 @@
             this.panel3.Controls.Add(this.vide);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.TXWINDOW);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.commander);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.data);
             this.panel3.Controls.Add(this.label3);
@@ -205,7 +210,6 @@
             this.vide.Size = new System.Drawing.Size(151, 18);
             this.vide.TabIndex = 14;
             this.vide.Text = "Votre panier est vide";
-           
             // 
             // panel6
             // 
@@ -216,16 +220,17 @@
             this.panel6.Size = new System.Drawing.Size(169, 60);
             this.panel6.TabIndex = 13;
             // 
-            // button2
+            // commander
             // 
-            this.button2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.button2.Location = new System.Drawing.Point(405, 423);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(475, 60);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Commander maintenant";
-            this.button2.UseVisualStyleBackColor = true;
+            this.commander.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commander.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.commander.Location = new System.Drawing.Point(405, 423);
+            this.commander.Name = "commander";
+            this.commander.Size = new System.Drawing.Size(475, 60);
+            this.commander.TabIndex = 13;
+            this.commander.Text = "Commander maintenant";
+            this.commander.UseVisualStyleBackColor = true;
+            this.commander.Click += new System.EventHandler(this.commander_Click);
             // 
             // panel4
             // 
@@ -259,26 +264,20 @@
             this.panier.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.panier.Size = new System.Drawing.Size(675, 116);
             this.panier.TabIndex = 16;
-            this.panier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ajouter au panier";
-            this.Column6.Name = "Column6";
+
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1196, 687);
+            this.ClientSize = new System.Drawing.Size(1164, 687);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown_1);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
+ 
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -307,7 +306,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button commander;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label vide;

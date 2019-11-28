@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Data.OleDb;
 using System.IO;
+using System.Threading;
 
 
 namespace serialcom
@@ -23,7 +24,7 @@ namespace serialcom
         private string BD = "data.csv";
         private DataTable table = new DataTable();
 
-        private SerialPort serialPort1 =null;
+        private SerialPort serialPort1 = null;
         Communication com; //window for first connexion, ask the user
         ControleRobot controle; //window blank for connexion shortcut
         DataTable achat;
@@ -34,7 +35,7 @@ namespace serialcom
         public Form1()
         {
             InitializeComponent();
-         
+
             this.KeyPreview = true;
             controle = new ControleRobot(this);
             com = new Communication(); //window principal can ask com, mais pas l'inverse
@@ -43,7 +44,7 @@ namespace serialcom
 
 
             StreamReader sr = new StreamReader("data.csv");
-            
+
             String line;
 
             // Read and display lines from the file until the end of 
@@ -59,12 +60,12 @@ namespace serialcom
 
                 if (confirm)
                 {
-                    for(int x =0; x< split.Length; x++)
+                    for (int x = 0; x < split.Length; x++)
                     {
                         DataColumn colone = new DataColumn();
-                        if(split[x].Contains('$'))
+                        if (split[x].Contains('$'))
                             colone.DataType = System.Type.GetType("System.Int32");
-                        
+
                         colone.ColumnName = split[x];
                         table.Columns.Add(colone);
                     }
@@ -87,7 +88,9 @@ namespace serialcom
             achat.Rows.Clear();
             recherche = table.Clone();
             recherche.Rows.Clear();
-            
+            var th1 = new Thread(Task);
+            th1.Start();
+
         }
 
 
@@ -146,20 +149,44 @@ namespace serialcom
         }
 
 
+        private void Task(Object state)
+        {
+            while (true)
+            {
+                var th = Thread.CurrentThread;
+
+                if ((char)serialPort1.ReadChar() == 'n')
+                {
+                    if (file.Count != 0)
+                    {
+                        send(file[0] + 'B');
+                        file.RemoveAt(0);
+                    }
+                    else
+                        send("F");
+                }
+                else
+                    Thread.Sleep(500);
+            }
+        }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-
+            serialPort1.ReadChar();
             string message = serialPort1.ReadExisting();
-
-            if (message == "newTask" && file.Count !=0) {
+            send("L");
+            if (message == "newTask" && file.Count != 0) {
                 send(file[0]);
                 file.RemoveAt(0);
             }
 
-         // a ajouter si un bi-latéral nessésaire
-         //   this.Invoke(new EventHandler(DisplayText));
+            MessageBox.Show(message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // a ajouter si un bi-latéral nessésaires
+        }
 
+
+        void afficheMessage(string message) {
+            MessageBox.Show(message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -173,10 +200,10 @@ namespace serialcom
         {
             if (e.Control && e.KeyCode == Keys.N)
             {
-               if(serialPort1 != null)
+                if (serialPort1 != null)
                     controle.ShowDialog();
             }
-        } 
+        }
 
 
 
@@ -202,7 +229,7 @@ namespace serialcom
             }
         }
 
-    
+
         private void TXWINDOW_TextChanged_1(object sender, EventArgs e) //Barre de recherche
         {
             recherche = table.Clone();
@@ -220,7 +247,11 @@ namespace serialcom
                 }
             }
             data.DataSource = recherche;
+            string message = " ";
+            message += (char)serialPort1.ReadChar();
+            MessageBox.Show(message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
 
         private void commander_Click(object sender, EventArgs e)
         {

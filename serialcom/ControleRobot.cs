@@ -27,11 +27,11 @@ namespace serialcom
             
              if (e.KeyCode == Keys.W)
             {
-                com.send("w"); 
+                com.send("1"); 
             }
             else if (e.KeyCode == Keys.S)
             {
-                com.send("A");
+                com.send("S");
             }
             else if (e.KeyCode == Keys.A)
             {
@@ -54,5 +54,7 @@ namespace serialcom
         {
             com.send("B");
         }
+
+  
     }
 }

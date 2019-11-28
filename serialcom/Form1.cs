@@ -165,8 +165,8 @@ namespace serialcom
                     else
                         send("F");
                 }
-                else
-                    Thread.Sleep(500);
+               // else
+                  //  Thread.Sleep(500);
             }
         }
 

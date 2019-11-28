@@ -22,3 +22,14 @@ C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Debug\serialcom.cspro
 C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Debug\serialcom.csproj.CoreCompileInputs.cache
 C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Debug\serialcom.exe
 C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Debug\serialcom.pdb
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\bin\Debug\serialcom.exe.config
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\bin\Debug\serialcom.exe
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\bin\Debug\serialcom.pdb
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.csprojAssemblyReference.cache
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.Communication.resources
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.ControleRobot.resources
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.Form1.resources
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.Properties.Resources.resources
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.csproj.GenerateResource.cache
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.exe
+C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.pdb

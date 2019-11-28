@@ -52,7 +52,7 @@ namespace serialcom
 
             bool confirm = true;
 
-            //inisialisation de la dataGrillView de livre             
+            //initialisation de la dataGrillView de livre             
             while ((line = sr.ReadLine()) != null)
             {
                 String[] split;
@@ -87,9 +87,13 @@ namespace serialcom
             achat = table.Clone();
             achat.Rows.Clear();
             recherche = table.Clone();
-            recherche.Rows.Clear();
-          //  var th1 = new Thread(Task);
-           // th1.Start();
+            recherche.Clear();
+            recherche = table.Clone();
+
+            TXWINDOW.Text = "a";
+            TXWINDOW.Text = "";
+            //  var th1 = new Thread(Task);
+            // th1.Start();
 
         }
 
@@ -215,19 +219,38 @@ namespace serialcom
             int a = data.CurrentCell.RowIndex;
             if (b == 0)
             {
-                //String b = data.Rows[a].Cells[0].Value.ToString();
-
+            
                 DataRow row = achat.NewRow();
-                for (int x = 0; x < table.Columns.Count; x++)
+                int c=0;
+                if (achat.Rows.Count>0)
                 {
-                    row[x] = table.Rows[a][x];
-                }
-                achat.Rows.Add(row);
-                panier.DataSource = achat; //on a associé le datagridview du panier à la base de donnée de l'achat
 
-                panier.Visible = true;
-                vide.Visible = false; //rend le texte invisible de : votre panier est vide
-                commander.Enabled = true;
+               
+                for (int s=0;s<achat.Rows.Count; s++)
+                {
+                    if (achat.Rows[s][0].ToString() == recherche.Rows[a][0].ToString())
+                    {
+                        achat.Rows.RemoveAt(s);
+                        c = c + 1;
+                    }
+
+                }
+
+                }
+                if (c==0)
+                {
+                    for (int x = 0; x < recherche.Columns.Count; x++)
+                    {
+                        row[x] = recherche.Rows[a][x];
+                    }
+                    achat.Rows.Add(row);
+                    panier.DataSource = achat; //on a associé le datagridview du panier à la base de donnée de l'achat
+
+                    panier.Visible = true;
+                    vide.Visible = false; //rend le texte invisible de : votre panier est vide
+                    commander.Enabled = true;
+                }
+               
             }
         }
 
@@ -235,7 +258,7 @@ namespace serialcom
         private void TXWINDOW_TextChanged_1(object sender, EventArgs e) //Barre de recherche
         {
             recherche = table.Clone();
-            recherche.Rows.Clear();
+            recherche.Rows.Clear();//enleve tout ce qu'il y a dans bibliotheque
             for (int count = 0; count < table.Rows.Count; count++)
             {
                 if (table.Rows[count][0].ToString().Contains(TXWINDOW.Text)) //.Text est le texte
@@ -266,6 +289,16 @@ namespace serialcom
             panier.Visible = false;
             data.DataSource = table;
             TXWINDOW.Clear();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

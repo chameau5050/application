@@ -249,9 +249,7 @@ namespace serialcom
                 }
             }
             data.DataSource = recherche;
-            string message = " ";
-            message += (char)serialPort1.ReadChar();
-            MessageBox.Show(message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         
         }
 
 

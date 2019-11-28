@@ -88,8 +88,8 @@ namespace serialcom
             achat.Rows.Clear();
             recherche = table.Clone();
             recherche.Rows.Clear();
-            var th1 = new Thread(Task);
-            th1.Start();
+          //  var th1 = new Thread(Task);
+           // th1.Start();
 
         }
 
@@ -124,6 +124,8 @@ namespace serialcom
 
                     MessageBox.Show("Connected", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CONNECT.Visible = false;
+                    var th1 = new Thread(Task);
+                    th1.Start();
                 }
                 else
                 {
@@ -154,7 +156,7 @@ namespace serialcom
             while (true)
             {
                 var th = Thread.CurrentThread;
-
+                
                 if ((char)serialPort1.ReadChar() == 'n')
                 {
                     if (file.Count != 0)

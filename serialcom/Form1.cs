@@ -250,6 +250,12 @@ namespace serialcom
                     vide.Visible = false; //rend le texte invisible de : votre panier est vide
                     commander.Enabled = true;
                 }
+
+                double totalAchat = 0;
+                for (int x = 0; x < achat.Rows.Count; x++) {
+                   totalAchat+= Double.Parse(achat.Rows[x][3].ToString().Replace('$',' '));
+                }
+                total.Text = totalAchat.ToString() + "$";
                
             }
         }

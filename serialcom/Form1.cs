@@ -253,7 +253,7 @@ namespace serialcom
 
                 double totalAchat = 0;
                 for (int x = 0; x < achat.Rows.Count; x++) {
-                   totalAchat+= Double.Parse(achat.Rows[x][3].ToString().Replace('$',' '));
+                   totalAchat+= Double.Parse(achat.Rows[x][4].ToString().Replace('$',' '));
                 }
                 total.Text = totalAchat.ToString() + "$";
                
@@ -267,15 +267,21 @@ namespace serialcom
             recherche.Rows.Clear();//enleve tout ce qu'il y a dans bibliotheque
             for (int count = 0; count < table.Rows.Count; count++)
             {
-                if (table.Rows[count][0].ToString().Contains(TXWINDOW.Text)) //.Text est le texte
-                {
-                    DataRow row = recherche.NewRow();
-                    for (int x = 0; x < table.Columns.Count; x++)
+                
+                //for (int count2 = 0; count2 < (table.Columns.Count - 1); count2++)
+                //{
+                    
+                    if (table.Rows[count][0].ToString().Contains(TXWINDOW.Text)) //.Text est le texte
                     {
-                        row[x] = table.Rows[count][x];
+                        DataRow row = recherche.NewRow();
+                        for (int x = 0; x < table.Columns.Count; x++)
+                        {
+                            row[x] = table.Rows[count][x];
+                        }
+                        recherche.Rows.Add(row);
                     }
-                    recherche.Rows.Add(row);
-                }
+               // }
+                
             }
             data.DataSource = recherche;
          
@@ -285,9 +291,9 @@ namespace serialcom
         private void commander_Click(object sender, EventArgs e)
         {
             for (int x = 0; x < achat.Rows.Count; x++) {
-                file.Add(achat.Rows[x]["tablette"].ToString());
+                file.Add(achat.Rows[x][5].ToString());
             }
-            MessageBox.Show("votre commande à bien été envoyer\nMerci d'avoir fait affaire avec BiblioRobot", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("votre commande à bien été envoyée\nMerci d'avoir fait confiance à BiblioRobot", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             commander.Enabled = false;
             vide.Visible = true;
             achat.Clear();

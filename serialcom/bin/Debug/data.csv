@@ -1,5 +1,9 @@
-Titre;Auteur;Editeur;Prix;tablette,
-titre1;auteur1;editeur1;26,99 $ ;11
-titre2;auteur2;editeur2;30,45 $ ;21
-titre3;editeur3;editeur3;11,56 $ ;10
-titre4;auteur4;editeur4;22,99 $ ;20
+Titre;Collection;Auteur;Editeur;Prix;tablette,
+Le talisman des pharaons;Leonis;Mario Francis;Les Intouchables;26,99 $ ;11
+La table aux 12 joyaux;Leonis;Mario Francis;Les Intouchables;30,45 $ ;21
+Le marais des demons;Leonis;Mario Francis;Les Intouchables;11,56 $ ;10
+Le royaume d'Esa;Leonis;Mario Francis;Les Intouchables;22,99 $ ;20
+L'ile des oublies;Leonis;Mario Francis;Les Intouchables;15,76 $ ;30
+Le temple des tenebres;Leonis;Mario Francis;Les Intouchables;45,85 $ ;31
+L'offrande supreme;Leonis;Mario Francis;Les Intouchables;12,84 $ ;40
+Les masques de l'ombre;Leonis;Mario Francis;Les Intouchables;18,99 $ ;41

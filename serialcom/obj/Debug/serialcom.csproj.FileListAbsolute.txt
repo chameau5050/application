@@ -33,3 +33,14 @@ C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.Pr
 C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.csproj.GenerateResource.cache
 C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.exe
 C:\Users\beaum\Documents\Projet\Git\application\serialcom\obj\Debug\serialcom.pdb
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\bin\Debug\serialcom.exe.config
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\bin\Debug\serialcom.exe
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\bin\Debug\serialcom.pdb
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.csprojAssemblyReference.cache
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.Communication.resources
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.ControleRobot.resources
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.Form1.resources
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.Properties.Resources.resources
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.csproj.GenerateResource.cache
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.exe
+C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.pdb

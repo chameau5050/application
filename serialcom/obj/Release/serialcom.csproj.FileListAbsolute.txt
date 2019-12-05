@@ -1,0 +1,13 @@
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\bin\Release\serialcom.exe.config
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\bin\Release\serialcom.exe
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\bin\Release\serialcom.pdb
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.Communication.resources
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.ControleRobot.resources
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.Form1.resources
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.Properties.Resources.resources
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.csproj.GenerateResource.cache
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.csproj.CoreCompileInputs.cache
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.exe
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.pdb
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.csprojAssemblyReference.cache
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Release\serialcom.choix.resources

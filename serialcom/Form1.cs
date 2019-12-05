@@ -24,12 +24,14 @@ namespace serialcom
         private string BD = "data.csv";
         private DataTable table = new DataTable();
 
+
+
         private SerialPort serialPort1 = null;
         Communication com; //window for first connexion, ask the user
         ControleRobot controle; //window blank for connexion shortcut
         DataTable achat;
         DataTable recherche;
-
+        private choix retour;
         List<String> file = new List<string>();
 
         public Form1()
@@ -40,8 +42,7 @@ namespace serialcom
             controle = new ControleRobot(this);
             com = new Communication(); //window principal can ask com, mais pas l'inverse
             com.ShowDialog(); //appel à l'ouverture de la window com
-
-
+            retour = new choix(this);
 
             StreamReader sr = new StreamReader("data.csv");
 
@@ -92,9 +93,7 @@ namespace serialcom
 
             TXWINDOW.Text = "a";
             TXWINDOW.Text = "";
-            //  var th1 = new Thread(Task);
-            // th1.Start();
-
+           
         }
 
 
@@ -154,6 +153,10 @@ namespace serialcom
             serialPort1.Write(message);
         }
 
+        public void addTofile(string task) {
+
+            file.Add(task);
+        }
 
         private void Task(Object state)
         {
@@ -165,7 +168,7 @@ namespace serialcom
                 {
                     if (file.Count != 0)
                     {
-                        send(file[0] + 'B');
+                        send(file[0]);
                         file.RemoveAt(0);
                     }
                     else
@@ -185,7 +188,6 @@ namespace serialcom
                 send(file[0]);
                 file.RemoveAt(0);
             }
-
             MessageBox.Show(message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // a ajouter si un bi-latéral nessésaires
         }
@@ -208,6 +210,11 @@ namespace serialcom
             {
                 if (serialPort1 != null)
                     controle.ShowDialog();
+            }
+            if (e.Control && e.KeyCode == Keys.R)
+            {
+                if (serialPort1 != null)
+                    retour.ShowDialog();
             }
         }
 
@@ -291,7 +298,7 @@ namespace serialcom
         private void commander_Click(object sender, EventArgs e)
         {
             for (int x = 0; x < achat.Rows.Count; x++) {
-                file.Add(achat.Rows[x][5].ToString());
+                file.Add(achat.Rows[x][5].ToString()+'0');
             }
             MessageBox.Show("votre commande à bien été envoyée\nMerci d'avoir fait confiance à BiblioRobot", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             commander.Enabled = false;

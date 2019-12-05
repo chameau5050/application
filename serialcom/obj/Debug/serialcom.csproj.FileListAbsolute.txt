@@ -44,3 +44,4 @@ C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\se
 C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.csproj.GenerateResource.cache
 C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.exe
 C:\Users\raphb\Documents\Application s1 robot\application\serialcom\obj\Debug\serialcom.pdb
+C:\Users\oli-d\Desktop\uni sherb\application\serialcom\obj\Debug\serialcom.choix.resources

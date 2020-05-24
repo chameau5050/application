@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serialcom", "serialcom\serialcom.csproj", "{B553D08D-C3C3-41CD-8F47-B760F584F49E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_bluetooth", "serialcom\app_bluetooth.csproj", "{B553D08D-C3C3-41CD-8F47-B760F584F49E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

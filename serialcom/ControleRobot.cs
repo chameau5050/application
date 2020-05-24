@@ -12,9 +12,9 @@ namespace serialcom
 {
     public partial class ControleRobot : Form
     {
-        Form1 com;
+        MainWindow com;
         
-        public ControleRobot(Form1 main)
+        public ControleRobot(MainWindow main)
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -22,6 +22,7 @@ namespace serialcom
 
         }
 
+        //sending notification that user is pressing WASD
         private void ControleRobot_KeyDown(object sender, KeyEventArgs e)
         {
             
@@ -50,9 +51,15 @@ namespace serialcom
            
         }
 
+        //sending notification that user spot pressing WASD
         private void ControleRobot_KeyUp(object sender, KeyEventArgs e)
         {
             com.send("B");
+        }
+
+        private void ControleRobot_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

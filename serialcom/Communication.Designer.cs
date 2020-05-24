@@ -102,6 +102,7 @@
             this.Controls.Add(this.confirmer);
             this.Name = "Communication";
             this.Text = "Communication";
+            this.Load += new System.EventHandler(this.Communication_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,7 +15,7 @@ using System.IO;
 namespace serialcom
 {
 
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
 
 
@@ -26,7 +26,7 @@ namespace serialcom
         private SerialPort serialPort1 =null;
         Communication com; //window for first connexion, ask the user
         ControleRobot controle; //window blank for connexion shortcut
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
          
@@ -95,14 +95,19 @@ namespace serialcom
             return isNum;
         }
 
+
+        //make the inisial connection 
         private void Connect() {
             try
             {
+                //create a SerialPort objet
                 serialPort1 = new SerialPort();
                 if (com.getconfirm())
                 {
+                    //specifie portName and BaudRate
                     serialPort1.PortName = com.getPortName();
                     serialPort1.BaudRate = com.getBaudRate();
+                    //openning port
                     serialPort1.Open();
 
                     if (!serialPort1.IsOpen) return;
@@ -129,13 +134,12 @@ namespace serialcom
             Connect();
         }
 
-
+        //sending data from HC-06 module
         public void send(String message) {
             serialPort1.Write(message);
         }
 
-
-
+        //when receving data from HC-06 module
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
 

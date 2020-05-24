@@ -27,11 +27,13 @@ namespace serialcom
             return confirm;
         }
 
+        //user user baudRate 
         public int getBaudRate()
         {
             return Int32.Parse(baudRate.Text);
         }
 
+        //return user port Name
         public string getPortName() {
             return portName.Text;
         }
@@ -40,6 +42,11 @@ namespace serialcom
         {
             confirm = true;
             this.Close();
+        }
+
+        private void Communication_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

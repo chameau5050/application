@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "ControleRobot";
             this.Text = "ControleRobot";
+            this.Load += new System.EventHandler(this.ControleRobot_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ControleRobot_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ControleRobot_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ControleRobot_KeyUp);
